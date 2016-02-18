@@ -1,5 +1,5 @@
 /*
- *  game-of-life.js - v0.1.0
+ *  game-of-life.js - v0.1.1
  *  HTML5 canvas game of life.
  *  https://github.com/eschmar/game-of-life
  *
@@ -107,7 +107,7 @@
                 this.future[x][y] = false;
 
             // currently dead cells
-            }else if (neighbours == 3) {
+            }else if (neighbours === 3) {
                 this.future[x][y] = true;
             }
         },
@@ -121,12 +121,14 @@
                 for (var j = -1; j < 2; j++) {
                     t = (x + i + this.xLength) % this.xLength;
                     s = (y + j + this.yLength) % this.yLength;
+
                     if (this.population[t][s]) {
                         count++;
                     }
                 }
             }
 
+            if (this.population[x][y]) {count--;};
             return count;
         },
 
@@ -141,6 +143,21 @@
                         this.population[i][j] = true;
                     }
                 }
+            }
+        },
+
+        addGlider: function(x, y) {
+            var coords = [[1,0], [2,1], [0,2], [1,2], [2,2]];
+            this.addGeneral(x, y, coords);
+        },
+
+        addGeneral: function(x, y, coords) {
+            var i, j, t;
+            for (t = 0; t < coords.length; t++) {
+                i = (x + coords[t][0] + this.xLength) % this.xLength;
+                j = (y + coords[t][1] + this.yLength) % this.yLength;
+                this.populate(i, j);
+                this.population[i][j] = true;
             }
         },
 
@@ -161,10 +178,12 @@
             // update view
             for (var i = 0; i < this.xLength; i++) {
                 for (var j = 0; j < this.yLength; j++) {
-                    if (this.future[i][j] && this.population[i][j] !== this.future[i][j]) {
-                        this.populate(i, j, 2);
-                    }else {
-                        this.kill(i, j);
+                    if (this.population[i][j] !== this.future[i][j]) {
+                        if (this.future[i][j]) {
+                            this.populate(i, j);
+                        }else {
+                            this.kill(i, j);
+                        }
                     }
                 }
             }
