@@ -25,6 +25,7 @@ game.toggle();
 |transparent|boolean (true)|If true, dead cells are transparent, else they adopt ``colorEmpty``.|
 |colorEmpty|string ('#fafafa')|See ``transparent``.|
 |speed|integer (100)|Defines the framerate in milliseconds.|
+|onClick|function (false)|Adds click/touch event with available mouse position. Example usage: ``onClick: function(game, x, y){ game.addGlider(x,y);}``|
 
 ## Life forms
 ```js

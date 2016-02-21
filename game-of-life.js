@@ -1,5 +1,5 @@
 /*
- *  game-of-life.js - v0.1.3
+ *  game-of-life.js - v0.1.4
  *  HTML5 canvas game of life.
  *  https://github.com/eschmar/game-of-life
  *
@@ -16,7 +16,7 @@
         colorEmpty: '#fafafa',
         transparent: true,
         speed: 100,
-        onClick: function(instance,x,y) {}
+        onClick: false
     };
 
     // runtime variables
