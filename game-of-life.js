@@ -1,5 +1,5 @@
 /*
- *  game-of-life.js - v0.1.2
+ *  game-of-life.js - v0.1.3
  *  HTML5 canvas game of life.
  *  https://github.com/eschmar/game-of-life
  *
@@ -15,7 +15,8 @@
         colors: ['#490D7F', '#B666FF', '#921AFF', '#5B337F', '#7515CC'],
         colorEmpty: '#fafafa',
         transparent: true,
-        speed: 100
+        speed: 100,
+        onClick: function(instance,x,y) {}
     };
 
     // runtime variables
@@ -47,6 +48,22 @@
             for (var i = 0; i < this.xLength; i++) {
                 this.population[i] = [];
             }
+
+            if (this.settings.onClick) {
+                this.initOnClick();
+            }
+        },
+
+        initOnClick: function() {
+            var self = this;
+            $(self.element).on('click touchstart', function(event) {
+                var offset, left, top;
+                offset = $(self.element).offset();
+                left = event.pageX - offset.left;
+                top = event.pageY - offset.top;
+                self.settings.onClick(self,Math.floor(left / self.settings.cellSize), Math.floor(top / self.settings.cellSize));
+                event.stopPropagation();
+            });
         },
 
         /**
