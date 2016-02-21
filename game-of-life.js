@@ -49,11 +49,15 @@
                 this.population[i] = [];
             }
 
+            // init onclick event
             if (this.settings.onClick) {
                 this.initOnClick();
             }
         },
 
+        /**
+         *  Triggers custom handler on click/touch
+         */
         initOnClick: function() {
             var self = this;
             $(self.element).on('click touchstart', function(event) {
