@@ -1,5 +1,5 @@
 /*
- *  game-of-life.js - v0.1.4
+ *  game-of-life.js - v0.1.5
  *  HTML5 canvas game of life.
  *  https://github.com/eschmar/game-of-life
  *
@@ -65,7 +65,7 @@
                 offset = $(self.element).offset();
                 left = event.pageX - offset.left;
                 top = event.pageY - offset.top;
-                self.settings.onClick(self,Math.floor(left / self.settings.cellSize), Math.floor(top / self.settings.cellSize));
+                self.settings.onClick(self, Math.floor(left / self.settings.cellSize), Math.floor(top / self.settings.cellSize));
                 event.stopPropagation();
             });
         },
@@ -165,6 +165,23 @@
                     }
                 }
             }
+        },
+
+        /**
+         *  Terminate all life.
+         */
+        killAll: function() {
+            var _alive = this.alive;
+            if (this.alive) { this.toggle(); }
+            for (var i = 0; i < this.xLength; i++) {
+                for (var j = 0; j < this.yLength; j++) {
+                    this.population[i][j] = false;
+                    this.kill(i,j);
+                }
+            }
+
+            this.future = $.extend(true, [], this.population);
+            if (_alive) { this.toggle(); }
         },
 
         /**
