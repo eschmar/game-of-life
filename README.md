@@ -36,6 +36,7 @@ game.addGlider(4,5);
 |---|---|---|
 |Glider|spaceship|[Smallest spaceship, by Richard K. Guy](http://www.conwaylife.com/wiki/Glider)|
 |Weekender|spaceship|[Orthogonal spaceship, by David Eppstein](http://www.conwaylife.com/wiki/Weekender)|
+|Siesta|oscillator|[Period 5 oscillator, by David Buckingham](http://www.conwaylife.com/wiki/Siesta)|
 
 It's possible to explicitly place any life form on the grid using the general method ``addLifeForm(x, y, coords)``. The array coords contains paairs of offsets to be drawn (example glider: ``[[1,0], [2,1], [0,2], [1,2], [2,2]]``.
 
