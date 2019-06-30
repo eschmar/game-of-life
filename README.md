@@ -1,14 +1,15 @@
 # Conway's game of life
-Converts any HTML5 canvas element to a stage for [Conway's game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). Written as a jQuery plugin. A demo can be seen at [eschmann.io](http://eschmann.io).
+Converts any HTML5 canvas element to a stage for [Conway's game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). A demo can be seen at [eschmann.io](http://eschmann.io).
 
 ## Usage
 ```js
 // init game of life on canvas object
-var $game = $('#canvas');
-$game.gameOfLife({});
-
-// get instance
-var game = $game.data("gameOfLife");
+var game = new GameOfLife('#canvas', {
+    cellSize: 5,
+    onClick: function(game, x, y) {
+        game.addGlider(x,y);
+    }
+});
 
 // generate population 
 game.randomize();

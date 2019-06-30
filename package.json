@@ -1,7 +1,9 @@
 {
+  "scripts": {
+    "minify": "uglifyjs --compress --mangle --comments --output game-of-life.min.js -- game-of-life.js"
+  },
   "dependencies": {},
   "devDependencies": {
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.2"
+    "uglify-js": "^3.6.0"
   }
 }
