@@ -1,5 +1,5 @@
 /*
- *  game-of-life.js - v0.2.0
+ *  game-of-life.js - v0.2.1
  *  HTML5 canvas game of life.
  *  https://github.com/eschmar/game-of-life
  *
@@ -72,7 +72,7 @@
    * Populate a single cell.
    */
   GameOfLife.prototype.populate = function(x, y) {
-    var color = Math.floor(Math.random() * 10 % this.settings.colors.length);
+    var color = Math.floor(Math.random() * this.settings.colors.length);
     this.ctx.fillStyle = this.settings.colors[color];
     this.ctx.fillRect(
       x*this.settings.cellSize+1, 
