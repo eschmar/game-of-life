@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "minify": "uglifyjs --compress --mangle --comments --output game-of-life.min.js -- game-of-life.js"
+    "minify": "uglifyjs --compress --mangle --comments --output game-of-life.min.js -- game-of-life.js && uglifyjs --compress --mangle --comments --output lifeform-lib.min.js -- lifeform-lib.js"
   },
   "dependencies": {},
   "devDependencies": {

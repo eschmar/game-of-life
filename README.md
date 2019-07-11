@@ -7,7 +7,7 @@ Converts any HTML5 canvas element to a stage for [Conway's game of life](https:/
 var game = new GameOfLife('#canvas', {
     cellSize: 5,
     onClick: function(game, x, y) {
-        game.addGlider(x,y);
+        game.addLifeForm(x,y,LifeForms.glider);
     }
 });
 
