@@ -1,5 +1,5 @@
 /*
- *  lifeform-lib.js - v0.1.0
+ *  lifeform-lib.js - v0.2.3
  *  Life form coordinates for HTML5 canvas game of life.
  *  https://github.com/eschmar/game-of-life
  *

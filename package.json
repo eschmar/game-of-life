@@ -1,9 +1,15 @@
 {
+  "name": "game-of-life",
+  "version": "0.2.3",
+  "description": "",
+  "main": "game-of-life.min.js",
   "scripts": {
     "minify": "uglifyjs --compress --mangle --comments --output game-of-life.min.js -- game-of-life.js && uglifyjs --compress --mangle --comments --output lifeform-lib.min.js -- lifeform-lib.js"
   },
   "dependencies": {},
   "devDependencies": {
     "uglify-js": "^3.6.0"
-  }
+  },
+  "author": "Marcel Eschmann, @eschmar",
+  "license": "MIT"
 }
