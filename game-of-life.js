@@ -1,5 +1,5 @@
 /*
- *  game-of-life.js - v0.2.3
+ *  game-of-life.js - v0.2.4
  *  HTML5 canvas game of life.
  *  https://github.com/eschmar/game-of-life
  *
@@ -64,7 +64,7 @@
     }
 
     this.element.addEventListener('click', onClick);
-    this.element.addEventListener('touchstart', onClick);
+    this.element.addEventListener('touchstart', onClick, {passive: true});
   };
 
   /**
